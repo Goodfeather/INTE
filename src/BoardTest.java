@@ -59,6 +59,15 @@ public class BoardTest {
         game.add(Board.Cell.O, 2, cell);
         assertEquals(true, game.checkWin(Board.Cell.O));
     }
+    @Test
+    public void testWin1(){
+        Board game = new Board();
+        game.add(Board.Cell.O, 0, 0);
+        game.add(Board.Cell.O, 1, 1);
+        game.add(Board.Cell.O, 2, 2);
+        assertEquals(true, game.checkWin(Board.Cell.O));
+    }
+
 
 
 }
