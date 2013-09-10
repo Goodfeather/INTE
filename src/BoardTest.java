@@ -76,12 +76,24 @@ public class BoardTest {
         assertEquals(true, game.checkWin("X"));
     }
     @Test
+    public void fillBoardTest(){
+        Board game = new Board();
+        game.fillBoard();
+
+        assertEquals(" ", game.get(0, 2));
+        assertEquals(" ", game.get(2, 0));
+        assertEquals(" ", game.get(2, 1));
+        assertEquals(" ", game.get(1, 2));
+        assertEquals(" ", game.get(0, 0));
+
+    }
+    @Test
     public void testPrint(){
         Board game = new Board();
         //assertEquals(" | | ", game.printRow());
-
+        game.fillBoard();
         game.add("X", 2, 2);
-        assertEquals(" | |X", game.printRow());
+        assertEquals(" | | ", game.printRow());
     }
 
 
