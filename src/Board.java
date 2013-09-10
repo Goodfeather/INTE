@@ -16,7 +16,6 @@ public class Board {
         matris = new Cell[3][3];
     }
 
-
     public boolean add(Cell cell, int col, int row){
         if(col < 0 || col > 2 || row < 0 || row > 2)
             throw new IndexOutOfBoundsException("");
