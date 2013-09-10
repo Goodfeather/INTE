@@ -17,13 +17,15 @@ public class Board {
     }
 
 
-    public boolean add(int col, int row){
+    public boolean add(Cell cell, int col, int row){
         if(col < 0 || col > 2 || row < 0 || row > 2)
-            throw new IndexOutOfBoundsException(row + " " + col);
+            throw new IndexOutOfBoundsException("");
         if(matris[col][row] == null){
-            matris[col][row] = Cell.X;
+            matris[col][row] = cell;
             return true;
         }else return false;
-
+    }
+    public Cell get(int col, int row){
+        return matris[col][row];
     }
 }

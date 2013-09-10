@@ -12,22 +12,30 @@ import org.junit.Test;
 public class BoardTest {
 
     @Test
-    public void testAdd() throws Exception {
+    public void testAdd(){
         Board game = new Board();
-        assertEquals(true, game.add(2, 2));
-        assertEquals(false, game.add(2, 2));
+        assertEquals(true, game.add(Board.Cell.X, 2, 2));
+        assertEquals(false, game.add(Board.Cell.X, 2, 2));
     }
     @Test(expected=IndexOutOfBoundsException.class)
     public void addAfter(){
         Board game = new Board();
-        game.add(2, 3);
-        game.add(3, 2);
+        game.add(Board.Cell.X, 2, 3);
+        game.add(Board.Cell.X, 3, 2);
     }
     @Test(expected=IndexOutOfBoundsException.class)
     public void addBefore(){
         Board game = new Board();
-        game.add(-1, 2);
-        game.add(2, -1);
+        game.add(Board.Cell.X, -1, 2);
+        game.add(Board.Cell.X, 2, -1);
+    }
+    @Test
+    public void testGet(){
+        Board game = new Board();
+
+        game.add(Board.Cell.X, 2, 2);
+        assertEquals(Board.Cell.X, game.get(2, 2));
+
     }
 
 
