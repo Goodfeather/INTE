@@ -60,12 +60,20 @@ public class BoardTest {
         assertEquals(true, game.checkWin(Board.Cell.O));
     }
     @Test
-    public void testWin1(){
+    public void testWin1(){   // test \ win
         Board game = new Board();
         game.add(Board.Cell.O, 0, 0);
         game.add(Board.Cell.O, 1, 1);
         game.add(Board.Cell.O, 2, 2);
         assertEquals(true, game.checkWin(Board.Cell.O));
+    }
+    @Test
+    public void testWin2(){   // test / win
+        Board game = new Board();
+        game.add(Board.Cell.X, 0, 2);
+        game.add(Board.Cell.X, 1, 1);
+        game.add(Board.Cell.X, 2, 0);
+        assertEquals(true, game.checkWin(Board.Cell.X));
     }
 
 
