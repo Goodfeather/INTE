@@ -43,11 +43,21 @@ public class BoardTest {
     public void testHorWin(){
         Board game = new Board();
         Random rand = new Random();
-        int  col = rand.nextInt(2);
-        game.add(Board.Cell.X, col, 0);
-        game.add(Board.Cell.X, col, 1);
-        game.add(Board.Cell.X, col, 2);
+        int  cell = rand.nextInt(2);
+        game.add(Board.Cell.X, cell, 0);
+        game.add(Board.Cell.X, cell, 1);
+        game.add(Board.Cell.X, cell, 2);
         assertEquals(true, game.checkWin(Board.Cell.X));
+    }
+    @Test
+    public void testVerWin(){
+        Board game = new Board();
+        Random rand = new Random();
+        int  cell = rand.nextInt(2);
+        game.add(Board.Cell.O, 0, cell);
+        game.add(Board.Cell.O, 1, cell);
+        game.add(Board.Cell.O, 2, cell);
+        assertEquals(true, game.checkWin(Board.Cell.O));
     }
 
 

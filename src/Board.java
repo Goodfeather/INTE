@@ -35,7 +35,12 @@ public class Board {
             matris[2][0] == player && matris[2][1] == player && matris[2][2] == player
         )
             return true;
-
+        //check vertical
+        else if(matris[0][0] == player && matris[1][0] == player && matris[2][0] == player ||
+                matris[0][1] == player && matris[1][1] == player && matris[2][1] == player ||
+                matris[0][2] == player && matris[1][2] == player && matris[2][2] == player
+                )
+            return true;
         else return false;
     }
 }
