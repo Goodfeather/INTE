@@ -7,16 +7,13 @@
  */
 public class Board {
 
-    private Cell[][] matris;
+    private String[][] matris;
 
-    public enum Cell {
-        O, X
-    }
     public Board(){
-        matris = new Cell[3][3];
+        matris = new String[3][3];
     }
 
-    public boolean add(Cell player, int col, int row){
+    public boolean add(String player, int col, int row){
         if(col < 0 || col > 2 || row < 0 || row > 2)
             throw new IndexOutOfBoundsException("");
         if(matris[col][row] == null){
@@ -24,10 +21,10 @@ public class Board {
             return true;
         }else return false;
     }
-    public Cell get(int col, int row){
+    public String get(int col, int row){
         return matris[col][row];
     }
-    public Boolean checkWin(Cell player){
+    public Boolean checkWin(String player){
 
         //check horizontal
         if(matris[0][0] == player && matris[0][1] == player && matris[0][2] == player ||
@@ -50,7 +47,9 @@ public class Board {
         else return false;
     }
     public String printRow(){
-        return " | | ";
+        //if (matris[0][0] == null)
+
+        return  " | |"+matris[0][0];
     }
 
 }
