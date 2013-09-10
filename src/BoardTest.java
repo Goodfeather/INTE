@@ -2,6 +2,8 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import java.util.Random;
+
 /**
  * Created with IntelliJ IDEA.
  * User: peter
@@ -40,10 +42,12 @@ public class BoardTest {
     @Test
     public void testHorWin(){
         Board game = new Board();
-        game.add(Board.Cell.X, 0, 0);
-        game.add(Board.Cell.X, 0, 1);
-        game.add(Board.Cell.X, 0, 2);
-        game.checkWin();
+        Random rand = new Random();
+        int  col = rand.nextInt(2);
+        game.add(Board.Cell.X, col, 0);
+        game.add(Board.Cell.X, col, 1);
+        game.add(Board.Cell.X, col, 2);
+        assertEquals(true, game.checkWin(Board.Cell.X));
     }
 
 

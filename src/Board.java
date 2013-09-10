@@ -27,7 +27,15 @@ public class Board {
     public Cell get(int col, int row){
         return matris[col][row];
     }
-    public Boolean checkWin(){
-        return true;
+    public Boolean checkWin(Cell player){
+
+        //check horizontal
+        if(matris[0][0] == player && matris[0][1] == player && matris[0][2] == player ||
+            matris[1][0] == player && matris[1][1] == player && matris[1][2] == player ||
+            matris[2][0] == player && matris[2][1] == player && matris[2][2] == player
+        )
+            return true;
+
+        else return false;
     }
 }
