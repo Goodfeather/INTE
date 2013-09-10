@@ -49,5 +49,8 @@ public class Board {
             return true;
         else return false;
     }
+    public String printRow(){
+        return " | | ";
+    }
 
 }
