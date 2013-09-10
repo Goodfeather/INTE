@@ -41,7 +41,11 @@ public class Board {
                 matris[0][2] == player && matris[1][2] == player && matris[2][2] == player
                 )
             return true;
+        //Check \
         else if(matris[0][0] == player && matris[1][1] == player && matris[2][2] == player)
+            return true;
+        //Check /
+        else if(matris[2][0] == player && matris[1][1] == player && matris[0][2] == player)
             return true;
         else return false;
     }
