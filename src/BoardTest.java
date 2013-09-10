@@ -17,6 +17,14 @@ public class BoardTest {
         assertEquals(true, game.add(2, 2));
 
     }
+    @Test(expected=IndexOutOfBoundsException.class)
+    public void addAfter(){
+        Board game = new Board();
+        game.add(2, 3);
+        game.add(3, 2);
+        game.add(-1, 2);
+        game.add(2, -1);
+    }
 
 
 }
