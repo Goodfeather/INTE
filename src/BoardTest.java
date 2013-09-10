@@ -37,6 +37,13 @@ public class BoardTest {
         assertEquals(Board.Cell.X, game.get(2, 2));
 
     }
+    public void testHorWin(){
+        Board game = new Board();
+        game.add(Board.Cell.X, 0, 0);
+        game.add(Board.Cell.X, 0, 1);
+        game.add(Board.Cell.X, 0, 2);
+        game.checkWin();
+    }
 
 
 }
