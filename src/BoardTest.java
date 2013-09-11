@@ -17,7 +17,9 @@ public class BoardTest {
     public void testAdd(){
         Board game = new Board();
         assertEquals(true, game.add("X", 2, 2));
+        assertEquals(true, game.add("X", 0, 0));
         assertEquals(false, game.add("X", 2, 2));
+        assertEquals(false, game.add("O", 2, 2));
     }
     @Test(expected=IndexOutOfBoundsException.class)
     public void addAfter(){
@@ -31,10 +33,16 @@ public class BoardTest {
         game.add("X", -1, 2);
         game.add("X", 2, -1);
     }
+    @Test(expected=IllegalArgumentException.class)
+    public void illegalAdd(){
+        Board game = new Board();
+        game.add("FEL", 0, 0);
+    }
     @Test
     public void testGet(){
         Board game = new Board();
-
+        game.add("X", 0, 0);
+        assertEquals("X", game.get(0, 0));
         game.add("X", 2, 2);
         assertEquals("X", game.get(2, 2));
 
@@ -75,6 +83,11 @@ public class BoardTest {
         game.add("X", 2, 0);
         assertEquals(true, game.checkWin("X"));
     }
+    @Test(expected=IllegalArgumentException.class)
+    public void illegalWin(){
+        Board game = new Board();
+        game.checkWin("FEL!");
+    }
     @Test
     public void fillBoardTest(){
         Board game = new Board();
@@ -87,15 +100,21 @@ public class BoardTest {
         assertEquals(" ", game.get(0, 0));
 
     }
+    @Test(expected=IndexOutOfBoundsException.class)
+    public void printOutOfBounds(){
+        Board game = new Board();
+        game.printRow(4);
+    }
     @Test
     public void testPrint(){
         Board game = new Board();
         //assertEquals(" | | ", game.printRow());
-        game.fillBoard();
+        game.add("X", 0, 0);
+        assertEquals("X| | ", game.printRow(0));
+        game.add("O", 1, 1);
+        assertEquals(" |O| ", game.printRow(1));
         game.add("X", 2, 2);
-        assertEquals(" | | ", game.printRow());
+        assertEquals(" | |X", game.printRow(2));
     }
-
-
 
 }
