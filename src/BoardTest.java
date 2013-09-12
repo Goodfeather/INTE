@@ -115,6 +115,14 @@ public class BoardTest {
         assertEquals(" |O| ", game.printRow(1));
         game.add("X", 2, 2);
         assertEquals(" | |X", game.printRow(2));
+        game.add("X", 1, 2);
+        assertEquals(" |O|X", game.printRow(1));
+    }
+    @Test
+    public void testPlayer(){
+        Board game = new Board();
+        assertEquals("X", game.getPlayer1());
+        assertEquals("O", game.getPlayer2());
     }
 
 }
