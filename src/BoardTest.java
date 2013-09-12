@@ -107,8 +107,7 @@ public class BoardTest {
     }
     @Test
     public void testPrint(){
-        Board game = new Board();
-        //assertEquals(" | | ", game.printRow());
+        Board game = new Board();;
         game.add("X", 0, 0);
         assertEquals("X| | ", game.printRow(0));
         game.add("O", 1, 1);
